@@ -1,17 +1,26 @@
 plugins {
-    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
 }
 
-group 'net.omidn'
+group 'net.omidn.schoolmanager'
 version '1.0-SNAPSHOT'
 
+
+javafx {
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+mainClassName = 'net.omidn.schoolmanager.Main'
+
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.34.0'
 }
 
 test {
